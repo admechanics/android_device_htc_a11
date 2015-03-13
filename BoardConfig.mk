@@ -1,0 +1,54 @@
+USE_CAMERA_STUB := true
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := MSM8916
+TARGET_NO_BOOTLOADER := true
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := a11,a11ul,a11chl,a5dug,a5dwg
+
+# Platform
+TARGET_BOARD_PLATFORM := msm8916
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
+
+# Architecture
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
+TARGET_CPU_VARIANT := cortex-a7
+ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+
+# Kernel
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3 androidboot.selinux=permissive
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 2048
+TARGET_PREBUILT_KERNEL := device/htc/a11/kernel
+#BOARD_KERNEL_SEPARATED_DT := true
+#BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02008000 --tags_offset 0x01e00000
+#BOARD_CUSTOM_BOOTIMG_MK := device/htc/a11/mkbootimg.mk
+#TARGET_KERNEL_CONFIG := cm_a11_defconfig
+#TARGET_KERNEL_SOURCE := kernel/htc/msm8974
+
+# QCOM hardware
+BOARD_USES_QCOM_HARDWARE := true
+
+# Partitions
+BOARD_BOOTIMAGE_PARTITION_SIZE := 8421376
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8421376
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1073741824
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 603979776
+BOARD_FLASH_BLOCK_SIZE := 131072
+TARGET_USERIMAGES_USE_EXT4 := true
+
+#TARGET_RECOVERY_FSTAB := device/htc/a11/rootdir/etc/fstab.qcom
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_RECOVERY_SWIPE := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+
+# inherit from the proprietary version
+-include vendor/htc/a11/BoardConfigVendor.mk
